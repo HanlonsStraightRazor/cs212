@@ -1,0 +1,267 @@
+
+\documentclass[12pt]{exam}
+
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath,amssymb}
+\usepackage{color}
+\usepackage{fancyvrb}
+
+\newcommand{\class}{CS 212}
+\newcommand{\term}{Spring 2019}
+\newcommand{\examnum}{Assignment 8}
+\newcommand{\examdate}{4/30/2019}
+
+\pagestyle{head}
+\firstpageheader{}{}{}
+\runningheader{\class}{\examnum\ - Page \thepage\ of \numpages}{\examdate}
+\runningheadrule
+
+
+\begin{document}
+
+\noindent
+\begin{tabular*}{\textwidth}{l @{\extracolsep{\fill}} r @{\extracolsep{6pt}} l}
+\textbf{\class} & \textbf{DUE: Tuesday, May 7 at 11:59 PM} & \\
+\textbf{\term} &&\\
+\textbf{\examnum} &&\\
+\textbf{\examdate} &\textbf{10 points}&\\
+\end{tabular*}\\
+\rule[2ex]{\textwidth}{2pt}
+
+\paragraph{Introduction:} This assignment will give you practice working with summations and recurrence relations. \\
+\\
+This is an individual effort homework assignment. You must write up your solutions in \LaTeX. Use the {\tt a8.tex} template that I provide and be sure to replace each ``Put your answer for \makebox[.25in]{\hrulefill} here.'' with your answers but leave everything else alone. Your solutions must be written up in a clear, concise and rigorous manner.  \\
+\\
+\noindent When you are done, zip up your .TEX file and corresponding .PDF file. Upload your .ZIP file to the {\bf a8} dropbox on d2l. After you have uploaded the file, double-check to ensure your file was uploaded correctly. It is your responsibility to ensure your submission was done correctly.  Assignments that are not uploaded correctly are worth 0 points. \\
+\\
+\\
+\\
+\\
+\\
+\\
+Consider the following recursive Java method: 
+\begin{verbatim}
+   // Assumes n is a non-negative integer, e.g., 0, 1, ... 
+   public static int myMethod(int n) {
+      if (n == 0) return 1;
+      int sum = 0;
+      for (int i = 0; i <= n - 1; i++) {
+         sum += myMethod(i) + myMethod(i);
+      }
+      return 1 + sum;
+   }
+\end{verbatim} 
+
+\noindent We would like to study {\tt myMethod} and determine a closed-form expression for its return value, for all non-negative {\tt int} values. We will do this by first formulating a recurrence relation for the value returned by {\tt myMethod}, and then we will use iteration to solve for a closed-form expression. Going forward, let $T(n)$ denote the value returned by {\tt myMethod}. 
+
+
+
+
+
+
+
+
+\clearpage
+
+\begin{questions}
+
+
+	\question[1] \label{qBase} What is the base case for for $T(n)$?
+	\begin{choices}
+		\choice $T(0) = 0$ 				%A
+		\choice $T(0) = 1$ 				%B
+		\choice $T(1) = 0$ 				%C
+		\choice $T(1) = 1$ 				%D
+	\end{choices}
+
+	\fbox{\begin{minipage}[t]{14.55cm} \color{red}
+			\vspace{25pt}
+				
+			\begin{center}
+				B. $T(0) = 1$
+			\end{center}
+				
+			\vspace{25pt}
+		\end{minipage}
+	}
+		
+\clearpage
+
+	\question[1] \label{qRec} What is the recursive case for $T(n)$?
+	\begin{choices}
+		\choice $\displaystyle T(n) = 1 + 2\sum_{i=0}^{n-1}{T(i)}$					%A
+		\choice $\displaystyle T(n) = 1 + \sum_{i=1}^{n-1}{\left(T(i)+T(i)\right)}$	%B
+		\choice $\displaystyle T(n) = \sum_{i=0}^{n-1}{2\cdot T(i)}$				%C
+		\choice $\displaystyle T(n) = 1 + 2\sum_{i=0}^{n}{T(i)}$					%D
+	\end{choices}
+
+	\fbox{\begin{minipage}[t]{14.55cm} \color{red}
+			\vspace{25pt}
+				
+			\begin{center}
+				A. $\displaystyle T(n) = 1 + 2\sum_{i=0}^{n-1}{T(i)}$
+			\end{center}
+				
+			\vspace{25pt}
+		\end{minipage}
+	}
+	
+	
+	\vspace{100pt}
+	Work the rest of the problems assuming your choices for questions~\ref{qBase} and~\ref{qRec}. 
+
+\clearpage
+
+	\question[1] Compute $T(1)$:
+	
+		
+	\fbox{\begin{minipage}[t]{14.55cm} \color{red}
+			\vspace{25pt}
+				
+			\begin{align*}
+				T(1) &= 1 + 2 \sum_{i=0}^{1-1} T(i) \\
+				&= 1 + 2(1) \\
+				&= \boxed{3}
+			\end{align*}
+				
+			\vspace{25pt}
+		\end{minipage}
+	}
+	
+\clearpage
+
+
+	\question[1] Compute $T(2)$:
+	
+		
+	\fbox{\begin{minipage}[t]{14.55cm} \color{red}
+			\vspace{25pt}
+				
+			\begin{align*}
+				T(2) &= 1 + 2 \sum_{i=0}^{2-1} T(i) \\
+				&= 1 + 2(1 + 3) \\
+				&= \boxed{9}
+			\end{align*}
+				
+			\vspace{25pt}
+		\end{minipage}
+	}
+	
+\clearpage
+
+	
+	\question[1] Compute $T(3)$:
+	
+		
+	\fbox{\begin{minipage}[t]{14.55cm} \color{red}
+			\vspace{25pt}
+				
+			\begin{align*}
+				T(3) &= 1 + 2 \sum_{i=0}^{3-1} T(i) \\
+				&= 1 + 2(1 + 3 + 9) \\
+				&= \boxed{27}
+			\end{align*}
+				
+			\vspace{25pt}
+		\end{minipage}
+	}
+	
+
+	
+\clearpage
+	
+	
+	\question[1] \label{qClosedForm} Using $T(0)$, $T(1)$, $T(2)$, and $T(3)$, guess a closed-form expression for $T(n)$.
+	
+		
+	\fbox{\begin{minipage}[t]{14.55cm} \color{red}
+			\vspace{25pt}
+			
+			\begin{align*}
+				T(0) &= 1 \\
+				T(1) &= 3 \\
+				T(2) &= 9 \\
+				T(3) &= 27
+			\end{align*}
+			$$\boxed{V_{n} = 3^{n}}$$
+				
+			\vspace{25pt}
+		\end{minipage}
+	}
+	
+\clearpage
+
+
+
+	\question[4] Verify your guessed solution from question~\ref{qClosedForm} is correct.
+	
+		
+	\fbox{\begin{minipage}[t]{14.55cm} \color{red}
+			\vspace{25pt}
+				
+			\begin{align*}
+				V_{0} &= 3^{0} \\
+				&= 1 \\
+				&\stackrel{\checkmark}{=} T(0)
+			\end{align*}
+			\begin{center}
+				Now we'll prove the recursive case. First, let's start by looking at the definition of $T(n)$:
+				$$T(n) = 1 + 2\sum_{i=0}^{n-1}T(i)$$
+				Just like with weak induction, let's assume that $T(m) = V(m), \forall m \le n-1$. That means that we can swap out $T(i)$ for $V(i)$ since the upper limit of the summation is $n-1$:
+				$$T(n) = 1 + 2\sum_{i=0}^{n-1}V(i)$$
+				Since $V(n) = 3^{n}$, (or in this case, $V(i) = 3^{i}$), we can swap that out in the summation:
+				$$T(n) = 1 + 2\sum_{i=0}^{n-1}3^{i}$$
+				Now let's rewrite the expression by getting rid of the summation notation:
+				$$T(n) = 1 + 2(3^{0} + 3^{1} + 3^{2} + \cdots + 3^{n-1})$$
+				As an aside, let's set $2(3^{0} + 3^{1} + 3^{2} + \cdots + 3^{n-1})$ equal to $S$. Now let's see what happens if we multiply $S$ by 3:
+				$$3 \cdot 2(3^{0} + 3^{1} + 3^{2} + \cdots + 3^{n-1}) = 2(3^{1} + 3^{2} + 3^{3} + \cdots + 3^{n})$$
+				Now we can subtract $S$ from $3S$:
+				\begin{align*}
+					3S - S &= 2(3^{1} + 3^{2} + 3^{3} + \cdots + 3^{n}) - 2(3^{0} + 3^{1} + 3^{2} + \cdots + 3^{n-1}) \\
+					2S &= 2(3^{n} - 3^{0}) \\
+					S &= 3^{n} - 1
+				\end{align*}
+			\end{center}
+			
+			\vspace{25pt}
+		\end{minipage}
+	}
+
+\clearpage
+
+\fbox{
+	\begin{minipage}[t]{14.55cm} \color{red}
+		\vspace{25pt}
+			
+			\begin{center}
+				Here we have a closed form expression for $S$. We can take this and plug it back into the formula for $T(n)$:
+				\begin{align*}
+					T(n) &= 1 + 3^{n} - 1 \\
+					&= 3^{n} \\
+					&\stackrel{\checkmark}{=} V(n)
+				\end{align*}
+			\end{center}
+			
+		\vspace{25pt}
+	\end{minipage}
+}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+		
+	
+\end{questions}
+		
+
+
+\end{document}

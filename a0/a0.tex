@@ -1,0 +1,55 @@
+\documentclass[12pt]{article}
+\usepackage{fullpage}
+\usepackage{nopageno}
+\usepackage{amsmath}
+
+\begin{document}
+	\begin{flushleft}
+		\quad Define the \textbf{generating function} (or \textit{formal power series}) $\mathcal{F}$ as
+	\end{flushleft}
+	\begin{equation*}
+		\begin{split}
+			\mathcal{F}(z) \ & = \ \sum_{i=0}^{\infty} F_{i}z^{i} \\
+ 			&= z+z^{2}+ 2z^{3}+ 3z^{4}+ 5z^{5}+ 8z^{6}+ 13z^{7}+ 21z^{8}+ 34z^{9} \cdots,
+ 		\end{split}
+	\end{equation*}
+	\begin{flushleft}
+		where $\mathcal{F}$ is the $i$th Fibonacci number.
+	\end{flushleft}
+	\begin{itemize}
+		\item Show that $\mathcal{F}(z)=z+z\mathcal{F}(z)+z^{2}\mathcal{F}(z)$
+		\item Show that
+		\begin{equation*}
+			\begin{split}
+				\mathcal{F}(z) \ & = \ \frac{z}{1-z-z^{2}} \\
+				&= \ \frac{z}{(1-\phi{z})\left(1-\hat{\phi}z\right)} \\
+				&= \frac{1}{\sqrt{5}}\left(\frac{1}{1-\phi{z}}-\frac{1}{1-\hat{\phi}z}\right)
+			\end{split}
+		\end{equation*}
+		\phantom{}where
+		$$\phi = \frac{1+\sqrt{5}}{2} = 1.61803 \cdots$$
+		\phantom{}and
+		$$\hat{\phi} = \frac{1-\sqrt{5}}{2} = -0.61803 \cdots$$
+		\item Show that
+		$$\mathcal{F}(z)=\sum_{i=0}^{\infty} \frac{1}{\sqrt{5}}\left(\phi^{i}-\hat{\phi}^{i}\right)z^{i}$$
+		\item Prove that $\forall i>0$, $F_{i}=\phi^{i}/\sqrt{5}$, rounded to the nearest integer. \\
+		\phantom{}(\textit{Hint:} Observe that $\left|\hat{\phi}\right|<1$)
+	\end{itemize}
+	\textbf{\textit{4-5 Chip Testing}} \\
+	Professor Diogenes has $n$ supposedly identical integrated circuit chips that in principle are capable of testing each other. The professor's test jig accommodates two chips at a time. When the jig is loaded, each chip tests the other and reports whether it is good or bad. A good chip always reports accurately whether the other chip is good or bad, but the professor cannot trust the answer of a bad chip. Thus, the four possible outcomes of a test are as follows: \\
+	\phantom{} \\
+	\begin{tabular}{ l l l }
+		Chip $A$ says & Chip $B$ says & Conclusion \\
+		\hline
+		$B$ is good & $A$ is good & both are good or both are bad \\
+		$B$ is good & $A$ is bad & at least one is bad \\
+		$B$ is bad & $A$ is good & at least one is bad \\
+		$B$ is bad & $A$ is bad & at least one is bad
+	\end{tabular}
+	\pagebreak
+	\begin{enumerate}
+		\item Show that if at least $n/2$ chips are bad, the professor cannot necessarily determine which chips are good using any strategy based on this kind of pairwise test. Assume that the bad chips can conspire to fool the professor.
+		\item Consider the problem of finding a single good chip from among $n$ chips, assuming that more than $n/2$ of the chips are good. Show that $\left\lfloor{n/2}\right\rfloor$ pairwise tests are sufficient to reduce the problem to one of nearly half the size.
+		\item Show that the good chips can be identified with $\Theta(n)$ pairwise tests, assuming that more than $n/2$ of the chips are good. Give and solve the recurrence that descries the number of tests.
+	\end{enumerate}
+\end{document}

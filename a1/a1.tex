@@ -1,0 +1,128 @@
+
+\documentclass[12pt]{exam}
+
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath,amssymb}
+\usepackage{color}
+
+\newcommand{\class}{CS 212}
+\newcommand{\term}{Spring 2019}
+\newcommand{\examnum}{Assignment 1}
+\newcommand{\examdate}{2/13/2019}
+
+\pagestyle{head}
+\firstpageheader{}{}{}
+\runningheader{\class}{\examnum\ - Page \thepage\ of \numpages}{\examdate}
+\runningheadrule
+
+
+\begin{document}
+
+\noindent
+\begin{tabular*}{\textwidth}{l @{\extracolsep{\fill}} r @{\extracolsep{6pt}} l}
+\textbf{\class} & \textbf{DUE: Tuesday, February 26 at 11:59 PM} & \\
+\textbf{\term} &&\\
+\textbf{\examnum} &&\\
+\textbf{\examdate} &\textbf{10 points}&\\
+\end{tabular*}\\
+\rule[2ex]{\textwidth}{2pt}
+
+\paragraph{Introduction:} This assignment will give you practice working with propositional logic and quantified statements. \\
+\\
+This is an individual effort homework assignment. You must write up your solutions in \LaTeX. Use the {\tt a1.tex} template that I provide and be sure to replace each ``Put your answer here.'' with your answers but leave everything else alone. Your solutions must be written up in a clear, concise and rigorous manner.  \\
+\\
+\noindent When you are done, zip up your .TEX file and corresponding .PDF file. Upload your .ZIP file to the {\bf a1} dropbox on d2l. After you have uploaded the file, double-check to ensure your file was uploaded correctly. It is your responsibility to ensure your submission was done correctly.  Assignments that are not uploaded correctly are worth 0 points. Only one partner should upload your solutions but both names should be given in the PDF. \\
+
+\clearpage
+
+\begin{questions}
+
+	\question[2] 
+	A \emph{small twin prime} is a prime number that is 2 less than another prime number. For example, $5$ is a small twin prime, because $5 = 7 - 2$ and $7$ is a prime number. List $4$ small twin primes. \\
+	\fbox{\begin{minipage}[t]{14.55cm} \color{red}
+			\vspace{25pt}
+			
+			\begin{center}
+				3, 11, 17, 29
+			\end{center}
+			
+			\vspace{25pt}
+		\end{minipage}
+	}
+
+\clearpage
+	
+
+    \question[3] Going forward, ONLY use the propositional functions: 
+\begin{enumerate}
+	\item $G(a,b) = \textmd{``}a > b\textmd{''}$, 
+	\item $L(a,b) = \textmd{``}a < b\textmd{''}$,
+	\item $E(a,b) = \textmd{``}a = b\textmd{''}$,
+	\item $D(p,q) = \textmd{``}p\textmd{ is divisible by } q\textmd{''}$, and
+	\item $P(m) = \textmd{``}m\textmd{ is a prime number''}$.
+\end{enumerate}
+Also, assume that all domains of discourse are restricted to the set of positive integers. \\
+\\
+    Let $m$ be a positive integer. Using only the above propositional functions, write the following quantified statement as a propositional function in the variable $m$: \\
+    \\
+    \framebox{``$m$ is a small twin prime.''} \\
+    \\
+    That is, write $T(m) =$ ???, where the ``???'' will be a quantified statement involving at least $m$ and maybe some other variables, depending on how many quantifiers you need to use. \\
+    \\
+    If you can't get this problem, then move on to the next and just use the propositional function $T(m)$ in your answer to the next problem. \\
+    \fbox{\begin{minipage}[t]{14.55cm} \color{red}
+    		\vspace{25pt}
+    			\begin{center}
+    				Here's the full formula using only the above propositional functions:
+    			\end{center}
+    			\begin{multline*}
+    				T(m) = (\exists m)(\exists n)\Bigg(P(m) \wedge P(n) \wedge G(n,m) \wedge \\
+    				(\exists x)\bigg(G(x,m) \wedge L(x,n) \wedge (\forall y)\Big(\neg E(y,x) \rightarrow \neg\big(G(y,m) \wedge L(y,n)\big)\Big)\bigg)\Bigg)
+    			\end{multline*}
+    			\begin{center}
+    				This is quite hard to understand. To make this a little easier to read, let's define a couple of new propositional functions using the given ones:
+    			\end{center}
+    			\begin{align*}
+    				B(x,a,b) &= G(x,a) \wedge L(x,b) \\
+    				&= \text{"x is between a smaller number \textit{a} and a larger number \textit{b}"}
+    			\end{align*}
+    			\begin{align*}
+    				O(x,a,b) &= B(x,a,b) \wedge (\forall y)\Big(\neg E(y,x) \rightarrow \neg B(y,a,b)\Big) \\
+    				&= \text{"x is the \textit{only} number between a smaller number \textit{a} and a larger number \textit{b}"}
+    			\end{align*}
+    			\begin{center}
+    				Now we'll put $O(x,a,b)$ together with the given propositional functions to get a simplified version of $T(m)$:
+    			\end{center}
+    			$$T(m) = (\exists m)(\exists n)\Big(P(m) \wedge P(n) \wedge G(n,m) \wedge (\exists x)O(x,m,n)\Big)$$
+    		\vspace{25pt}
+    	\end{minipage}
+    }
+
+\clearpage
+    
+    \question[3] \label{two} For this part, write the following quantified statement symbolically, using the propositional functions that were previously defined, including $T(m)$: \\ 
+    \\ 
+    ``There are an infinite number of small twin primes.'' \\ \fbox{\begin{minipage}[t]{14.55cm} \color{red}
+    		\vspace{25pt}
+    			
+    			$$(\forall m)(\exists n)\Big(T(m) \wedge G(n,m) \wedge T(n)\Big)$$
+    			
+    		\vspace{25pt}
+    	\end{minipage}
+    }
+    
+\clearpage
+
+	\question[1] Do you think the statement from the previous question true or false? Either way, give some kind of justification. \\ \fbox{\begin{minipage}[t]{14.55cm} \color{red}
+			\vspace{25pt}
+			I think that since there are an infinite number of primes, there are most likely an infinite number of twin primes (and therefore an infinite number of small twin primes). So far, the largest twin prime pair found contain primes totaling 388,342 digits each. If they've found twin primes that high, who's to say that there aren't infinitely many?
+			\vspace{25pt}
+		\end{minipage}
+	}
+\end{questions}
+
+
+
+
+
+\end{document}

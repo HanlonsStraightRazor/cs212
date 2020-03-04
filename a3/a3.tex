@@ -1,0 +1,160 @@
+
+\documentclass[12pt]{exam}
+
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath,amssymb}
+\usepackage{color}
+
+\newcommand{\class}{CS 212}
+\newcommand{\term}{Spring 2019}
+\newcommand{\examnum}{Assignment 3}
+\newcommand{\examdate}{3/11/2019}
+
+\pagestyle{head}
+\firstpageheader{}{}{}
+\runningheader{\class}{\examnum\ - Page \thepage\ of \numpages}{\examdate}
+\runningheadrule
+
+
+\begin{document}
+
+\noindent
+\begin{tabular*}{\textwidth}{l @{\extracolsep{\fill}} r @{\extracolsep{6pt}} l}
+\textbf{\class} & \textbf{DUE: Tuesday, March 19 at 11:59 PM} & \\
+\textbf{\term} &&\\
+\textbf{\examnum} &&\\
+\textbf{\examdate} &\textbf{10 points}&\\
+\end{tabular*}\\
+\rule[2ex]{\textwidth}{2pt}
+
+\paragraph{Introduction:} This assignment will give you practice doing proofs by weak induction. \\
+\\
+This is an individual effort homework assignment. You must write up your solutions in \LaTeX. Use the {\tt a3.tex} template that I provide and be sure to replace each ``Put your answer for \makebox[.25in]{\hrulefill} here.'' with your answers but leave everything else alone. Your solutions must be written up in a clear, concise and rigorous manner.  \\
+\\
+\noindent When you are done, zip up your .TEX file and corresponding .PDF file. Upload your .ZIP file to the {\bf a3} dropbox on d2l. After you have uploaded the file, double-check to ensure your file was uploaded correctly. It is your responsibility to ensure your submission was done correctly.  Assignments that are not uploaded correctly are worth 0 points. \\
+\\
+\\
+\\
+\\
+\\
+\\
+\\
+\\
+This assignment will focus exclusively on the following propositional function, which takes as its only input a positive integer $n$: $$P(n) = \textmd{``} \ 1^2-2^2+3^2-\cdots+\left(-1\right)^{n-1}n^2 = (-1)^{n-1}\frac{n(n+1)}{2} \ \textmd{''}$$
+
+\noindent Notice that $P(n)$ does not evaluate to an integer, but rather, given a positive integer $n$ as an input parameter, it evaluates to proposition. \\
+\\
+In the rest of this assignment, you will prove that, for all positive integers $n$, $P(n)$ is true (that is, it evaluates to a proposition that is true), using weak mathematical induction.
+
+
+\clearpage
+
+\begin{questions}
+
+	\question[1] Explicitly verify that $P(10)$ is true. Make sure you evaluate both sides separately and then show that both sides evaluate to the same value. 
+	
+	\fbox{\begin{minipage}[t]{14.55cm} \color{red}
+			\vspace{25pt}			
+			\begin{center}
+				We evaluate $P(n)$ at 10 by plugging in 10 for $n$ like so:
+				
+				\begin{align*}
+					1^{2}-2^{2}+3^{2}-4^{2}+5^{2}-6^{2}+7^{2}-8^{2}+9^{2}-10^{2} &= (-1)^{10-1}\frac{10(10+1)}{2} \\
+					-55 &= (-1)^{9}\frac{110}{2} \\
+					-55 &= -55
+				\end{align*}
+				
+				Since both sides are equivalent, $P(10)$ is true.
+			\end{center}		
+			\vspace{25pt}
+			\end{minipage}
+		}
+
+\clearpage
+
+	\question[1] What is the base case? 
+		
+		\fbox{\begin{minipage}[t]{14.55cm} \color{red}
+			\vspace{25pt}
+			
+			The base case is $n=1$. As stated above, the domain of the propositional function $P(n)$ is the set of all positive integers of which 1 is the first.
+			
+			\vspace{25pt}
+			\end{minipage}
+		}
+		
+\clearpage
+		
+	\question[2] Explicitly verify that the base case is true.
+	
+		\fbox{\begin{minipage}[t]{14.55cm} \color{red}
+			\vspace{25pt}
+			
+			\begin{center}
+				\begin{align*}
+					P(1) = 1^{2} &= (-1)^{1-1}\frac{1(1+1)}{2} \\
+					1 &= 1
+				\end{align*}
+			\end{center}
+			
+			\vspace{25pt}
+			\end{minipage}
+		}
+		
+\clearpage
+		
+	\question[2] What is the inductive hypothesis, expressed as a quantified statement?
+	
+		\fbox{\begin{minipage}[t]{14.55cm} \color{red}
+			\vspace{25pt}
+			
+			$(\exists k \in \mathbb{N})P(k)$ where $\mathbb{N}$ is the set of all natural numbers (starting at 1)
+			
+			\vspace{25pt}
+			\end{minipage}
+		}
+	
+\clearpage
+		
+	\question[1] Assuming that the inductive hypothesis is true, then what do you need to prove in the inductive step?
+	
+		\fbox{\begin{minipage}[t]{14.55cm} \color{red}
+			\vspace{25pt}
+			
+			$P(k+1)$
+			
+			\vspace{25pt}
+			\end{minipage}
+		}
+
+\clearpage
+		
+	\question[3] Complete the inductive step, identifying very clearly where you use the inductive hypothesis. Show all the steps!
+	
+		\fbox{\begin{minipage}[t]{14.55cm} \color{red}
+			\vspace{25pt}
+			
+			\begin{center}
+				\begin{align*}
+					(-1)^{n-1} \frac{n(n+1)}{2} |_{n=k+1} &= (-1)^{k+1-1} \frac{(k+1)(k+1+1)}{2} \\
+					&= (-1)(-1)^{k-1} \frac{k^{2}+k+k+k+1+1}{2} \\
+					&= (-1)(-1)^{k-1}\left(\frac{k(k+1)}{2} + \frac{2k+2}{2}\right) \\
+					&= (-1)\left((-1)^{k-1}\frac{k(k+1)}{2}+(-1)^{k-1}(k+1)\right) \\
+					&\stackrel{I.H.}{=} (-1)\left(P(k)+(-1)^{k-1}(k+1)\right) \\
+					&= (-1)^{k}(k+1)-P(k)
+				\end{align*}
+				Now if we consider what would happen if we had $k+1$ terms, it would go something like this:
+				$$1^{2}-2^{2}+3^{2}-4^{2}+ \cdots -(-1)^{k-1}k^{2}+(-1)^{k}(k+1)^{2}$$
+				If we summed the first $k$ terms, then by the induction hypothesis, it would yield $P(k)$. Therefore, the above expression can also be written like so:
+				$$-P(k)+(-1)^{k}(k+1)^{2}$$
+				or
+				$$(-1)^{k}(k+1)^{2}-P(k)$$
+				As we can see, we arrive at the identical result as above when $k+1$ is plugged into the hypothesized formula. Therefore, $(\exists k \in \mathbb{N})P(k)$ where $\mathbb{N}$ is the set of all natural numbers (starting at 1). $\square$
+			\end{center}
+			
+			\vspace{25pt}
+			\end{minipage}
+		}		
+	
+\end{questions}
+\end{document}

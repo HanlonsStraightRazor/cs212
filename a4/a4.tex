@@ -1,0 +1,182 @@
+
+\documentclass[12pt]{exam}
+
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath,amssymb}
+\usepackage{color}
+
+\newcommand{\class}{CS 212}
+\newcommand{\term}{Spring 2019}
+\newcommand{\examnum}{Assignment 4}
+\newcommand{\examdate}{3/19/2019}
+
+\pagestyle{head}
+\firstpageheader{}{}{}
+\runningheader{\class}{\examnum\ - Page \thepage\ of \numpages}{\examdate}
+\runningheadrule
+
+
+\begin{document}
+
+\noindent
+\begin{tabular*}{\textwidth}{l @{\extracolsep{\fill}} r @{\extracolsep{6pt}} l}
+\textbf{\class} & \textbf{DUE: Tuesday, April 2 at 11:59 PM} & \\
+\textbf{\term} &&\\
+\textbf{\examnum} &&\\
+\textbf{\examdate} &\textbf{10 points}&\\
+\end{tabular*}\\
+\rule[2ex]{\textwidth}{2pt}
+
+\paragraph{Introduction:} This assignment will give you practice doing proofs by strong induction. \\
+\\
+This is an individual effort homework assignment. You must write up your solutions in \LaTeX. Use the {\tt a4.tex} template that I provide and be sure to replace each ``Put your answer for \makebox[.25in]{\hrulefill} here.'' with your answers but leave everything else alone. Your solutions must be written up in a clear, concise and rigorous manner.  \\
+\\
+\noindent When you are done, zip up your .TEX file and corresponding .PDF file. Upload your .ZIP file to the {\bf a4} dropbox on d2l. After you have uploaded the file, double-check to ensure your file was uploaded correctly. It is your responsibility to ensure your submission was done correctly.  Assignments that are not uploaded correctly are worth 0 points. \\
+\\
+\\
+\\
+\\
+\\
+\\
+\\
+\\
+\\
+\\
+\paragraph{Problem:} In this assignment, prove, using a suitable strong induction argument, that, if you walk into a store with an infinite number of seventeen dollar bills as well as an infinite number of nineteen dollar bills in your wallet, then you can buy all items that that are all sufficiently expensive, and always paying with exact change. \\
+\\
+For example, obviously, you can't buy all items that cost at least \$20, because there's no way you can even buy an item that costs \$20 using only seventeen and/or nineteen dollar bills. But can you buy all items (using exact change) that are at least \$100? 
+
+
+\clearpage
+
+\begin{questions}
+
+	\question[1] Define, for the given problem up above, a corresponding propositional function $P(n)$.
+		
+		\fbox{\begin{minipage}[t]{14.55cm} \color{red}
+			\vspace{25pt}
+			
+				\begin{center}
+					$P(n)$ = "Exactly $n$ dollars can be comprised of only 17 and/or 19 dollar bills"
+				\end{center}
+			
+			\vspace{25pt}
+			\end{minipage}
+		}
+		
+\clearpage
+
+	\question[1] What is the price of the least expensive item in the store that you can afford using only seventeen and/or nineteen dollar bills, such that, you can pay for any item in the store that costs at least this much using only seventeen and/or nineteen dollar bills and always paying with exact change? \\
+	\\
+	Hint: the answer is not \$17. The answer is also not \$19. Moreover, based on the problem description, \$20 is not the price of this special least expensive item. 
+		
+		\fbox{\begin{minipage}[t]{14.55cm} \color{red}
+			\vspace{25pt}
+			
+				\begin{center}
+					\$288
+				\end{center}							
+			
+			\vspace{25pt}
+			\end{minipage}
+		}
+		
+\clearpage
+
+
+	\question[1] List the smallest set of base cases that you'll need in your strong inductive proof.
+		
+		\fbox{\begin{minipage}[t]{14.55cm} \color{red}
+			\vspace{25pt}
+			
+			\begin{center}
+				$P(288)$, $P(289)$, $P(290)$, $P(291)$, $P(292)$, $P(293)$, $P(294)$, $P(295)$, $P(296)$, $P(297)$, $P(298)$, $P(299)$, $P(300)$, $P(301)$, $P(302)$, $P(303)$, $P(304)$, $P(306)$ 
+			\end{center}
+			
+			\vspace{25pt}
+			\end{minipage}
+		}
+		
+\clearpage
+		
+	\question[2] Explicitly verify that all the base cases you listed in the previous part are true.
+	
+		\fbox{\begin{minipage}[t]{14.55cm} \color{red}
+			\vspace{25pt}
+			
+			\begin{center}
+				\begin{align*}
+					288 = 8 \cdot 17 &+ 8 \cdot 19 \\
+					289 = 17 \cdot 17 &+ 0 \cdot 19 \\
+					290 = 7 \cdot 17 &+ 9 \cdot 19 \\
+					291 = 16 \cdot 17 &+ 1 \cdot 19 \\
+					292 = 6 \cdot 17 &+ 10 \cdot 19 \\
+					293 = 15 \cdot 17 &+ 2 \cdot 19 \\
+					294 = 5 \cdot 17 &+ 11 \cdot 19 \\
+					295 = 14 \cdot 17 &+ 3 \cdot 19 \\
+					296 = 4 \cdot 17 &+ 12 \cdot 19 \\
+					297 = 13 \cdot 17 &+ 4 \cdot 19 \\
+					298 = 3 \cdot 17 &+ 13 \cdot 19 \\
+					299 = 12 \cdot 17 &+ 5 \cdot 19 \\
+					300 = 2 \cdot 17 &+ 14 \cdot 19 \\
+					301 = 11 \cdot 17 &+ 6 \cdot 19 \\
+					302 = 1 \cdot 17 &+ 15 \cdot 19 \\
+					303 = 10 \cdot 17 &+ 7 \cdot 19 \\
+					304 = 0 \cdot 17 &+ 16 \cdot 19 \\
+					306 = 18 \cdot 17 &+ 0 \cdot 19
+				\end{align*}
+			\end{center}
+			
+			\vspace{25pt}
+			\end{minipage}
+		}
+		
+\clearpage
+		
+	\question[1] What is the inductive hypothesis, expressed as a quantified statement? Again, you're using strong induction for this problem. 
+	
+		\fbox{\begin{minipage}[t]{14.55cm} \color{red}
+			\vspace{25pt}
+			
+			\begin{center}
+				$P(288) \wedge P(289) \wedge P(290) \wedge \cdots \wedge P(k)$ is true
+			\end{center}
+			
+			\vspace{25pt}
+			\end{minipage}
+		}
+	
+\clearpage
+		
+	\question[1] Assuming that the inductive hypothesis is true, then what do you need to prove in the inductive step?
+	
+		\fbox{\begin{minipage}[t]{14.55cm} \color{red}
+			\vspace{25pt}
+			
+			\begin{center}
+				I need to prove that $P(k+1)$ is true.
+			\end{center}
+			
+			\vspace{25pt}
+			\end{minipage}
+		}
+
+\clearpage
+		
+	\question[3] Complete the inductive step, identifying very clearly where you use the inductive hypothesis. Show all the steps! Try to mimic the examples from class.
+	
+		\fbox{\begin{minipage}[t]{14.55cm} \color{red}
+			\vspace{25pt}
+			
+			\begin{center}
+				We start by assuming $P(k)$ for all $k \geq 288$. If $P(k)$ is true, then we just have to find $P(k+1)$. If we look at our base cases, we notice that there are 18 different (non-trivial) ways to get the $(k+1)^{th}$ element from a preceding element. For each case, it also applies to a number 17 or 19 away from it. The only difference is that there will be an extra amount of 17s or 19s added along with the specific mathematical operations used to get the $(k+1)^{th}$ element for each case addressed above. Therefore, $P(k+1)$ is true.
+			\end{center}
+			
+			\vspace{25pt}
+			\end{minipage}
+		}		
+	
+\end{questions}
+
+
+\end{document}

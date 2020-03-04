@@ -1,0 +1,247 @@
+
+\documentclass[12pt]{exam}
+
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath,amssymb}
+\usepackage{color}
+
+\newcommand{\class}{CS 212}
+\newcommand{\term}{Spring 2019}
+\newcommand{\examnum}{Assignment 6}
+\newcommand{\examdate}{4/11/2019}
+
+\pagestyle{head}
+\firstpageheader{}{}{}
+\runningheader{\class}{\examnum\ - Page \thepage\ of \numpages}{\examdate}
+\runningheadrule
+
+
+\begin{document}
+
+\noindent
+\begin{tabular*}{\textwidth}{l @{\extracolsep{\fill}} r @{\extracolsep{6pt}} l}
+\textbf{\class} & \textbf{DUE: Thursday, April 18 at 11:59 PM} & \\
+\textbf{\term} &&\\
+\textbf{\examnum} &&\\
+\textbf{\examdate} &\textbf{10 points}&\\
+\end{tabular*}\\
+\rule[2ex]{\textwidth}{2pt}
+
+\paragraph{Introduction:} This assignment will give you practice working with functions. \\
+\\
+This is an individual effort homework assignment. You must write up your solutions in \LaTeX. Use the {\tt a6.tex} template that I provide and be sure to replace each ``Put your answer for \makebox[.25in]{\hrulefill} here.'' with your answers but leave everything else alone. Your solutions must be written up in a clear, concise and rigorous manner.  \\
+\\
+\noindent When you are done, zip up your .TEX file and corresponding .PDF file. Upload your .ZIP file to the {\bf a6} dropbox on d2l. After you have uploaded the file, double-check to ensure your file was uploaded correctly. It is your responsibility to ensure your submission was done correctly.  Assignments that are not uploaded correctly are worth 0 points. \\
+\\
+\\
+\\
+\\
+\\
+\\
+\\
+\\
+\\
+\\
+\\
+\\
+\\
+Going forward, assume that $$\mathbb{N} = \{0, 1, 2, \ldots\}$$ and $$\mathbb{Q}^{\geq 0}= \left\{ \left. \frac{p}{q} \;\right|\; p\in \mathbb{N} \wedge q \in \mathbb{N} \wedge q\ne 0 \wedge \textmd{gcd}(p,q)=1 \right\}.$$
+\\
+In this homework, you will study functions with domain and co-domain $\mathbb{N} \times \mathbb{N} \times \mathbb{Q}^{\geq 0}$ and $\mathbb{N}$, respectively.
+
+
+
+
+
+\clearpage
+
+\begin{questions}
+
+	\question[7] Let $f: \mathbb{N} \times \mathbb{N} \times \mathbb{Q}^{\geq 0} \longrightarrow \mathbb{N}$. 
+	\begin{parts}
+		\part[1] \label{first} Give an example of two distinct elements of the domain of $f$. 
+		
+		\fbox{\begin{minipage}[t]{14.55cm} \color{red}
+				\vspace{25pt}
+				
+				\begin{center}
+					$(0, 1, \frac{1}{1})$ and $(1, 1, \frac{1}{1})$
+				\end{center}
+				
+				\vspace{25pt}
+			\end{minipage}
+		}
+		
+		
+\clearpage
+		
+		
+		
+		\part[1] Give an example of two distinct elements of the co-domain of $f$.
+	
+		
+		\fbox{\begin{minipage}[t]{14.55cm} \color{red}
+			\vspace{25pt}
+			
+			\begin{center}
+				0 and 1
+			\end{center}
+			
+			\vspace{25pt}
+			\end{minipage}
+		}
+	
+	
+		
+\clearpage
+
+
+
+		\part[1] Explain why the rule $f\left(x,y,\frac{p}{q}\right) = x+y+p+q$ is not a one-to-one function.
+		
+		\fbox{\begin{minipage}[t]{14.55cm} \color{red}
+			\vspace{25pt}
+			
+			\begin{center}
+				Let $x = 1$, $y = 2$, $p = 1$, and $q = 1$. We can now evaluate $f\left(x,y,\frac{p}{q}\right)$: $f\left(1,2,\frac{1}{1}\right) = 1 + 2 + 1 + 1 = 5$. Now let $x = 2$, $y = 1$, $p = 1$, and $q = 1$. With these different inputs, let's now evaluate $f\left(x,y,\frac{p}{q}\right)$: $f\left(2,1,\frac{1}{1}\right) = 2 + 1 + 1 + 1 = 5$. Since we have arrived at the same output despite having 2 different inputs, this function is not one-to-one. $\square$
+			\end{center}
+			
+			\vspace{25pt}
+			\end{minipage}
+		}
+
+
+
+\clearpage
+
+		\part[1] \label{rule-f} Specify a rule for $f$ that is one-to-one. \\
+		
+			
+		\fbox{\begin{minipage}[t]{14.55cm} \color{red}
+			\vspace{25pt}
+			
+			\begin{center}
+				$f\left(x,y,\frac{p}{q}\right) = a \cdot b \cdot c \cdot d$ where $a$, $b$, $c$, and $d$ are all unique prime numbers
+			\end{center}
+			
+			\vspace{25pt}
+			\end{minipage}
+		}
+	
+	
+	
+\clearpage
+
+		\part[1] Take the elements (of the domain of $f$) that you specified in (\ref{first}) and give the elements (of the co-domain of $f$) to which they map under your rule for $f$ from (\ref{rule-f}). \\
+		
+		
+		\fbox{\begin{minipage}[t]{14.55cm} \color{red}
+				\vspace{25pt}
+				
+				\begin{center}
+					Since all prime numbers are natural numbers, a product of them will also be a natural number, therefore the codomain of $f$ is $\mathbb{N}$.
+				\end{center}
+				
+				\vspace{25pt}
+			\end{minipage}
+		}
+
+\clearpage
+	
+		\part[1] Prove that the rule that you specified in (\ref{rule-f}) is one-to-one. If your rule is not one-to-one, then you will automatically receive 0 for this part. \\
+		
+		
+		\fbox{\begin{minipage}[t]{14.55cm} \color{red}
+				\vspace{25pt}
+				
+				\begin{center}
+					By the fundamental theorem of arithmetic, each value of $f$ in the domain would map to a unique value in the codomain of $f$, as $a$, $b$, $c$, and $d$ are all unique prime numbers.
+				\end{center}
+				
+				\vspace{25pt}
+			\end{minipage}
+		}
+
+	
+	\end{parts}
+	
+	
+		
+\clearpage
+
+
+
+	\question[3] Let $g: \mathbb{N} \times \mathbb{N} \times \mathbb{Q}^{\geq 0} \longrightarrow \mathbb{N}$.
+
+	\begin{parts}
+		
+		\part[1] \label{rule-g} Specify a rule for $g$ that is onto.
+		
+		\fbox{\begin{minipage}[t]{14.55cm} \color{red}
+				\vspace{25pt}
+				
+				$$g\left(x, y, \frac{p}{q}\right) = x + 0y + 0p + 0q$$
+				
+				\vspace{25pt}
+			\end{minipage}
+		}
+	
+	
+	
+\clearpage
+		
+		\part[1] What element of the domain of $g$ maps to $23571113171923$ under the rule you specified in (\ref{rule-g})?
+		
+		\fbox{\begin{minipage}[t]{14.55cm} \color{red}
+				\vspace{25pt}
+				
+				\begin{center}
+					If we take any $x$ to be 23571113171923, and $y$, $p$, and $q$ to be any arbitrary elements $a$, $b$, and $c$ respectively within their respective domains, we have: $g\left(x, y, \frac{p}{q}\right) = g\left(23571113171923, a, \frac{b}{c}\right) 23571113171923 + 0a + 0b + 0c = 23571113171923$. As we can see, when $x = 23571113171923$, $y = a$, $p = b$, and $q = c$, $g$ maps to 23571113171923.
+				\end{center}
+				
+				\vspace{25pt}
+			\end{minipage}
+		}
+	
+	
+	
+\clearpage
+	
+	
+	
+		\part[1] Prove that the rule that you specified in (\ref{rule-g}) is onto. If your rule is not onto, then you will automatically receive 0 for this part. \\
+		
+		\fbox{\begin{minipage}[t]{14.55cm} \color{red}
+				\vspace{25pt}
+				
+				\begin{center}
+				Here is our rule: $g\left(x, y, \frac{p}{q}\right) = x + 0y + 0p + 0q$. As we can see, this is the same as $g\left(x, y, \frac{p}{q}\right) = x$ by the multiplication property of zero. Since the values of $y$, $p$, and $q$ do not matter, the only numbers that this function can output are elements from the domain of $x$. Since the domain of $x$ is $\mathbb{N}$, and the codomain is also $\mathbb{N}$, the rule specified in (a) is onto, because each element of the codomain can be mapped to from (an) element(s) from the domain. $\square$
+			\end{center}
+				
+				\vspace{25pt}
+			\end{minipage}
+		}
+		
+	\end{parts}
+	
+\clearpage
+
+	
+	\question[1] Finally, is there a bijection from $\mathbb{N} \times \mathbb{N} \times \mathbb{Q}^{\geq 0}$ into $\mathbb{N}$? Either way, justify your answer.
+		
+	\fbox{\begin{minipage}[t]{14.55cm} \color{red}
+			\vspace{25pt}
+			
+			\begin{center}
+				No, there is no bijection. I cannot even find a one-to-one function, even though finding an onto function is trivial. 4 variables makes it even more difficult to find unique outputs.
+			\end{center}
+			
+			\vspace{25pt}
+		\end{minipage}
+	}
+	
+		
+\end{questions}
+
+
+\end{document}

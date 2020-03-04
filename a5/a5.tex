@@ -1,0 +1,181 @@
+
+\documentclass[12pt]{exam}
+
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath,amssymb}
+\usepackage{color}
+\usepackage{tabularx}
+
+\newcommand{\class}{CS 212}
+\newcommand{\term}{Spring 2019}
+\newcommand{\examnum}{Assignment 5}
+\newcommand{\examdate}{4/2/2019}
+
+\pagestyle{head}
+\firstpageheader{}{}{}
+\runningheader{\class}{\examnum\ - Page \thepage\ of \numpages}{\examdate}
+\runningheadrule
+
+
+\begin{document}
+
+\noindent
+\begin{tabular*}{\textwidth}{l @{\extracolsep{\fill}} r @{\extracolsep{6pt}} l}
+\textbf{\class} & \textbf{DUE: Tuesday, April 9 at 11:59 PM} & \\
+\textbf{\term} &&\\
+\textbf{\examnum} &&\\
+\textbf{\examdate} &\textbf{10 points}&\\
+\end{tabular*}\\
+\rule[2ex]{\textwidth}{2pt}
+
+\paragraph{Introduction:} This assignment will give you practice with basic set theory. \\
+\\
+This is an individual effort homework assignment. You must write up your solutions in \LaTeX. Use the {\tt a5.tex} template that I provide and be sure to replace each ``Put your answer for \makebox[.25in]{\hrulefill} here.'' with your answers but leave everything else alone. Your solutions must be written up in a clear, concise and rigorous manner.  \\
+\\
+\noindent When you are done, zip up your .TEX file and corresponding .PDF file. Upload your .ZIP file to the {\bf a5} dropbox on d2l. After you have uploaded the file, double-check to ensure your file was uploaded correctly. It is your responsibility to ensure your submission was done correctly.  Assignments that are not uploaded correctly are worth 0 points. \\
+
+
+
+
+
+\clearpage
+
+\begin{questions}
+
+	\question[6] Consider the following table: \\
+    \\
+    \begin{tabular}{r|c|c}
+    	& $A \in B$ & $A \not \in B$ \\
+        \hline
+            & & \\
+  $A \subseteq B$ & & \\
+            & & \\
+        \hline
+                 & & \\
+  $A \not \subset B$ & & \\
+                 & & \\
+        \hline
+    \end{tabular}
+    \\
+    \\
+    For each cell, give sets $A$ and $B$ that satisfy the specified relationships, e.g., for the upper-left most cell, you need to come up with sets $A$ and $B$, such that, $A \in B$ and $A \subseteq B$. For each cell, you must explain (briefly) why your sets work. Always use the ``smallest'' possible sets in all of your examples. 
+		
+		\fbox{\begin{minipage}[t]{14.55cm} \color{red}
+			\vspace{25pt}
+			
+			\begin{center}
+			\def\arraystretch{1.3}
+				\begin{tabular}{r|c|c}
+    				& $A \in B$ & $A \not \in B$ \\
+        			\hline
+         			& $A = \emptyset$ & $A = \emptyset$ \\
+  					$A \subseteq B$ & & \\
+            		& $B = \{ \emptyset \}$ & $B = \emptyset$ \\
+        			\hline
+                 	& $A = \{a\}$ & $A = \{a\}$ \\
+  					$A \not \subset B$ & & \\
+                 	& $B = \{\{a\}\}$ & $B = \{b\}$ \\
+        			\hline
+    			\end{tabular}
+    			\newline
+    			\newline
+    			For the upper left box, we can see immediately that $A$ is an element of $B$ because the empty set is an element of the set containing the empty set. As for $A$ being a subset of or equal to $B$, this condition is satisfied, because one of the properties of the empty set is that it's a subset of every set.
+    			\newline
+    			\newline
+    			For the upper right box, we see that $A$ is equal to $B$, as both $A$ and $B$ are the empty set. The second condition is satisfied because the empty set contains no elements, and therefore does not contain itself. This means that the empty set is not contained in the empty set, and therefore $A$ is not an element of $B$.
+    			\newline
+    			\newline
+    			For the lower left box, we can see that $A$ contains some arbitrary element $a$, and $B$ contains the set that contains that same element $a$. Right away we can see that $A$ is an element of $B$, since $B$ is comprised of the set containing the set containing $a$, and $A$ is the set containing $a$. However, the only two possible subsets of $B$ are the empty set and itself, since $a$ is not technically an element of $B$. Therefore, $A$ is not a subset of $B$.
+			\end{center}
+			
+			\vspace{25pt}
+			\end{minipage}
+		}
+
+\clearpage
+
+\fbox{
+	\begin{minipage}[t]{14.55cm} \color{red}
+		\vspace{25pt}
+			
+			\begin{center}
+				For the final box, the lower right hand box, we observe that $A$ is the set containing some arbitrary element $a$, and $B$ is the set containing some value $b$, which is different than $a$ and is not the set containing $a$. $A$ is not a subset of $B$ because the only possible subsets of $B$ are the empty set and itself, and $A$ is neither of those. Lastly, $A$ is not an element of $B$, because $B$ does not contain the set containing $a$, it only contains some arbitrary element $b$, which is not the set containing $a$. Therefore, $A$ is not an element of $B$.
+			\end{center}
+			
+		\vspace{25pt}
+	\end{minipage}
+}
+
+\clearpage
+
+	\question[2] Assume that $A$ and $B$ are sets. Prove the following set equality relationship: $\left(A \cap \overline{B}\right) \cup \left(B \cap \overline{A}\right) = \left( A \cup B \right) \cap \overline{\left( A \cap B \right) }$.
+		
+		\fbox{\begin{minipage}[t]{14.55cm} \color{red}
+			\vspace{25pt}
+			
+			First, let's see of we can rewrite the left hand side of the equation to something simpler:
+			\begin{center}
+				\begin{align*}
+					A \cap B &\stackrel{\text{def}}{=} \{x | x \in A \wedge x \in B\} \\
+					A \cap \overline{B} &= \{x | x \in A \wedge x \not\in B\} \\
+					A - B &\stackrel{\text{def}}{=} \{x | x \in A \wedge x \not\in B\} \\
+					A \cap \overline{B} &= A - B
+				\end{align*}
+				With this information, we can rewrite $A \cap \overline{B}$ as $A - B$. Through a similar process, we can rewrite $B \cap \overline{A}$ as $B - A$. This allows us to completely rewrite the left hand side like so:
+				$$(A - B) \cup (B - A)$$
+				Taking a look at this, we see that this represents all elements that are in $A$ without the elements in $B$ coupled with all of the elements that are in $B$ and not in $A$. We can further rewrite this by using the following definition:
+				$$A \triangle B \stackrel{\text{def}}{=} (A - B) \cup (B - A)$$
+				Now we have figured out that the left hand side is equal to $A \triangle B$, or the so called symmetric difference of $A$ and $B$. This can be thought of all the elements that are unique to each set, or the elements that $A$ and $B$ "disagree on".
+				\newline
+				\newline
+				Now for the right hand side. To the left of the intersection, we have $A \cup B$. Rewritten in set builder notation, that's:
+				$$A \cup B \stackrel{\text{def}}{=} \{x | x \in A \vee x \in B\}$$
+				On the right side of the intersection, we have the opposite of the intersection of $A$ and $B$. The intersection of $A$ and $B$ is defined as $\{x | x \in A \wedge x \in B\}$. Logically, the opposite of this would be all elements $x$ such that $x$ is not in $A$ \textit{or} $x$ is not in $B$ inclusively, (this is an extension of DeMorgan's Law). Written in set builder notation, that's:
+				$$\overline{A \cap B} = \{x | x \not\in A \vee x \not\in B\}$$
+			\end{center}
+			
+			\vspace{25pt}
+			\end{minipage}
+		}
+		
+\clearpage
+
+\fbox{
+	\begin{minipage}[t]{14.55cm} \color{red}
+		\vspace{25pt}
+			
+			\begin{center}
+				We can write the intersection of both parts of the right hand side using set builder notation like so:
+				$$\left(A \cup B\right) \cap \overline{\left(A \cap B\right)} = \{x | \left[x \in A \vee x \in B\right] \wedge \left[x \not\in A \vee x \not\in B\right]\}$$				
+				Interpreting this on a higher level, we can see that $x$ must fill two requirements for membership: it must be in $A$ or $B$ (inclusively), \textit{and} it must not be in $A$ or must not be in $B$ (inclusively). Since it is impossible for an element to both be in and not be in a set, the element $x$ must be exclusively in $A$ or $B$. Now we can see that this is exactly the same thing as the symmetric difference of $A$ and $B$, because the element $x$ \textit{must} be in one set or the other, but not both. Therefore, $\left(A \cap \overline{B}\right) \cup \left(B \cap \overline{A}\right)$ is a subset of or equal to $\left( A \cup B \right) \cap \overline{\left( A \cap B \right) }$, and $\left( A \cup B \right) \cap \overline{\left( A \cap B \right) }$ is a subset of or equal to $\left(A \cap \overline{B}\right) \cup \left(B \cap \overline{A}\right)$. Therefore:
+				$$\left(A \cap \overline{B}\right) \cup \left(B \cap \overline{A}\right) = \left( A \cup B \right) \cap \overline{\left( A \cap B \right) } \quad \square$$
+			\end{center}
+			
+		\vspace{25pt}
+	\end{minipage}
+}
+
+\clearpage
+
+
+	\question[2] Consider the following implication, assuming $A$, $B$, $C$ and $D$ are arbitrary sets:\\ \framebox{If $A \times B \subseteq C \times D$, then $A \subseteq C$ and $B \subseteq D$} \\
+	\\
+	If you believe this implication is true, then prove it. Otherwise, if you believe it is false, then disprove it using the smallest possible counter-example. 
+		
+		\fbox{\begin{minipage}[t]{14.55cm} \color{red}
+			\vspace{25pt}
+			
+			\begin{center}
+				This implication is false. A counter example would be if we take $A$ to be $\{a,b\}$, where $a$ and $b$ are unique elements, $C$ to be $\{c\}$, where $c$ is a unique element different from $a$ and $b$, and $B$ and $D$ to each be the empty set. This way, $A \times B = \emptyset$ and $C \times D = \emptyset$. This means that $A \times B = C \times D = \emptyset$, which fulfills the condition $A \times B \subseteq C \times D$. However, $A$ is not a subset of $C$, as the sets have no elements in common. Since the conclusion requires both $A \subseteq C$ and $B \subseteq D$ to be true, the entire implication is false, because the conclusion is false when the implication is true in at least one case. $\square$
+			\end{center}
+			
+			\vspace{25pt}
+			\end{minipage}
+		}
+		
+		
+	
+\end{questions}
+
+
+\end{document}
